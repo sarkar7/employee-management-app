@@ -22,7 +22,9 @@ bin/
 *.iws
 *.iml
 *.ipr
+*.log
 out/
+logs/
 !**/src/main/**/out/
 !**/src/test/**/out/
 

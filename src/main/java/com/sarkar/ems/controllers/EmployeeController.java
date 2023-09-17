@@ -1,7 +1,7 @@
 package com.sarkar.ems.controllers;
 
 import com.sarkar.ems.constants.UriConstants;
-import com.sarkar.ems.models.Employee;
+import com.sarkar.ems.models.postgres.Employee;
 import com.sarkar.ems.services.EmployeeService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -80,7 +80,7 @@ public class EmployeeController {
             _employee.setSalary(employee.getSalary());
             return new ResponseEntity<>(employeeService.save(_employee), HttpStatus.OK);
         } else {
-            log.info("Couldn't find the record in database with ID - " + employee.getId());
+            log.info("Couldn't find the record in database with ID - " + employee.getEmployeeId());
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }

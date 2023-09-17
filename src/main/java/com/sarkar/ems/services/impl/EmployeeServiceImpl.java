@@ -1,7 +1,7 @@
 package com.sarkar.ems.services.impl;
 
-import com.sarkar.ems.models.Employee;
-import com.sarkar.ems.repositories.EmployeeRepository;
+import com.sarkar.ems.models.postgres.Employee;
+import com.sarkar.ems.repositories.postgres.EmployeeRepository;
 import com.sarkar.ems.services.EmployeeService;
 import jakarta.transaction.Transactional;
 import org.springframework.data.domain.Page;

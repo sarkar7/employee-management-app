@@ -1,6 +1,6 @@
 package com.sarkar.ems.services;
 
-import com.sarkar.ems.models.Employee;
+import com.sarkar.ems.models.postgres.Employee;
 import org.springframework.data.domain.Page;
 
 import java.util.List;
