@@ -33,6 +33,10 @@ public class EmployeeServiceImpl implements EmployeeService {
         return employeeRepository.findByEmployeeId(id);
     }
 
+    public Employee findByUsername(String username) {
+        return employeeRepository.findByUsername(username);
+    }
+
     public List<Employee> findByNameContaining(String name) {
         return employeeRepository.findByNameContaining(name);
     }

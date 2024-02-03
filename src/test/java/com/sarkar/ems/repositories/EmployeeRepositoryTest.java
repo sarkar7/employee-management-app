@@ -20,10 +20,10 @@ class EmployeeRepositoryTest {
     private EmployeeRepository employeeRepository;
 
     @Test
-    public void findByEmployeeIdTest() {
+    void findByEmployeeIdTest() {
         Set<Role> roles = new HashSet<>();
-        roles.add(new Role(1, "Test1"));
-        roles.add(new Role(2, "Test2"));
+        roles.add(new Role(1, "Test1", "sarkar", LocalDate.now(), null, null));
+        roles.add(new Role(2, "Test2", "sarkar", LocalDate.now(), null, null));
 
         Employee employee = Employee.builder()
                 .name("Sourabh Sarkar")

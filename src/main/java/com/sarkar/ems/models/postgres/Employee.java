@@ -1,20 +1,17 @@
 package com.sarkar.ems.models.postgres;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.time.LocalDate;
 import java.util.Set;
 
 @Entity
-@Table(name = "EMPLOYEE")
 @Data
 @Builder
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
+@Table(name = "EMPLOYEE")
 public class Employee {
 
     @Id
@@ -27,7 +24,7 @@ public class Employee {
             strategy = GenerationType.SEQUENCE,
             generator = "employee_sequence"
     )
-    @Column(name = "employee_id", nullable = false)
+    @Column(name = "employee_id")
     private Long employeeId;
 
     private String name;
@@ -37,15 +34,26 @@ public class Employee {
     private LocalDate startDate;
     private Double salary;
 
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private String username;
+    private String password;
+
+    // Audit
+    @Column(nullable = false)
+    private String createdBy;
+
+    @Column(nullable = false)
+    private LocalDate createdDate;
+
+    private String updatedBy;
+    private LocalDate updatedDate;
+
+
+    @ManyToMany(/* cascade = CascadeType.ALL, */ fetch = FetchType.EAGER)
     @JoinTable(
             name = "employee_roles",
             joinColumns = @JoinColumn(name = "employee_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id")
     )
     private Set<Role> roles;
-
-
-
 
 }

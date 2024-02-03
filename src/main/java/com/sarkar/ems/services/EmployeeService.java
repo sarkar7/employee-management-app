@@ -13,6 +13,8 @@ public interface EmployeeService {
 
     Employee findByEmployeeId(Long id);
 
+    Employee findByUsername(String username);
+
     List<Employee> findByNameContaining(String name);
 
     Employee save(Employee employee);

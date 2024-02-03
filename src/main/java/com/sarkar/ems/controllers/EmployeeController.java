@@ -29,7 +29,7 @@ public class EmployeeController {
     public ResponseEntity<List<Employee>> getAllEmployees() {
         try {
             List<Employee> employees = new ArrayList<>(employeeService.findAllEmployees());
-            return employees.size() >= 1 ? new ResponseEntity<>(employees, HttpStatus.OK)
+            return !employees.isEmpty() ? new ResponseEntity<>(employees, HttpStatus.OK)
                     : new ResponseEntity<>(null, HttpStatus.NO_CONTENT);
         } catch (Exception e) {
             log.info("Couldn't return anything as " + e.getMessage());

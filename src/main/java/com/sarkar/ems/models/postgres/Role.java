@@ -6,12 +6,14 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
-@Table(name = "ROLE")
+import java.time.LocalDate;
+
 @Data
+@Entity
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@Table(name = "ROLE")
 public class Role {
 
     @Id
@@ -19,6 +21,17 @@ public class Role {
     @Column(name = "role_id")
     private Integer roleId;
 
+    @Column(nullable = false)
     private String name;
+
+    // Audit
+    @Column(nullable = false)
+    private String createdBy;
+
+    @Column(nullable = false)
+    private LocalDate createdDate;
+
+    private String updatedBy;
+    private LocalDate updatedDate;
 
 }
